@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        pacifico: ["var(--font-pacifico)"],
+      },
       colors: {
         mainColor: "#1A7F72",
         bgColor: "rgb(216,241,235)",

@@ -9,9 +9,16 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 200 300 400 500 600 700 800 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
+  weight: "100 200 300 400 500 600 700 800 900",
+});
+
+const pacifico = localFont({
+  src: "./fonts/Pacifico-Regular.ttf",
+  variable: "--font-pacifico",
   weight: "100 200 300 400 500 600 700 800 900",
 });
 
@@ -32,7 +39,7 @@ export const Layout = (props: LayoutProps) => {
   return (
     <>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
         {header}
         {body}
