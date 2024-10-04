@@ -2,7 +2,7 @@ import { cn } from "@/shared/utils";
 
 type CardProps = {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const Card = (props: CardProps) => {

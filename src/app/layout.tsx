@@ -42,9 +42,11 @@ export const Layout = (props: LayoutProps) => {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
-        {header}
-        {body}
-        {footer}
+        <div className="flex flex-col gap-2 min-h-screen ">
+          {header}
+          <div className="flex-grow">{body}</div>
+          {footer}
+        </div>
       </body>
     </>
   );
