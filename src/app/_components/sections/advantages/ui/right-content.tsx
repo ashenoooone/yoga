@@ -7,6 +7,14 @@ type RightContentProps = {
 
 export const RightContent = (props: RightContentProps) => {
   const { className } = props;
+
+  const cardClassname = {
+    cardClassName:
+      "bg-gradient-to-l from-white/50 via-white/50 to-white/80 ",
+    className:
+      "p-[3px] bg-gradient-to-l from-transparent via-green-900/20  to-green-900/60 rounded-xl",
+  };
+
   return (
     <div
       className={cn(
@@ -15,20 +23,17 @@ export const RightContent = (props: RightContentProps) => {
       )}
     >
       <AdvantagesCard
-        cardClassName="bg-gradient-to-l from-white/50 via-white/50 to-white/80 "
-        className="p-[3px] bg-gradient-to-l from-transparent via-green-900/20  to-green-900/60 rounded-xl"
-        title="Улучшение дыхания"
+        {...cardClassname}
+        title="Дыхание"
         content="Техники дыхания в йоге учат контролировать дыхание, увеличивают объем легких."
       />
       <AdvantagesCard
-        cardClassName="bg-gradient-to-l from-white/50 via-white/50 to-white/80 "
-        className="p-[3px] bg-gradient-to-l from-transparent via-green-900/20  to-green-900/60 rounded-xl"
-        title="Повышение концентрации"
+        {...cardClassname}
+        title="Концентрация"
         content="Практика йоги включает в себя элементы медитации, что улучшает концентрацию и внимание в повседневной жизни."
       />
       <AdvantagesCard
-        cardClassName="bg-gradient-to-l from-white/50 via-white/50 to-white/80 "
-        className="p-[3px] bg-gradient-to-l from-transparent via-green-900/20  to-green-900/60 rounded-xl"
+        {...cardClassname}
         title="Баланс тела и разума"
         content="Йога помогает гармонизировать физическое и психическое состояние"
       />

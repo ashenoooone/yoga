@@ -24,19 +24,19 @@ export const AdvantagesCard = (
       <Card
         className={cn(
           cardClassName,
-          "border-none rounded-xl h-[150px]"
+          "border-none rounded-xl lg:h-[150px]"
         )}
         {...rest}
       >
         <Typography
           variant={"h4"}
-          className="font-bold mb-2"
+          className="font-bold mb-2 lg:text-xl text-base"
         >
           {title}
         </Typography>
         <Typography
           variant={"h6"}
-          className="text-muted-foreground font-normal"
+          className="text-muted-foreground font-normal lg:base text-sm md:inline hidden"
         >
           {content}
         </Typography>

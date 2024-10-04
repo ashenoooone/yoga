@@ -7,6 +7,14 @@ type LeftContentProps = {
 
 export const LeftContent = (props: LeftContentProps) => {
   const { className } = props;
+
+  const cardClasses = {
+    cardClassName:
+      "bg-gradient-to-r from-white/50 via-white/50 to-white/80",
+    className:
+      "p-[3px] bg-gradient-to-r from-transparent via-green-900/20  to-green-900/60 rounded-xl",
+  };
+
   return (
     <div
       className={cn(
@@ -15,28 +23,19 @@ export const LeftContent = (props: LeftContentProps) => {
       )}
     >
       <AdvantagesCard
-        cardClassName="bg-gradient-to-r from-white/50 via-white/50 to-white/80 "
-        className={
-          "p-[3px] bg-gradient-to-r from-transparent via-green-900/20  to-green-900/60 rounded-xl"
-        }
-        title="Улучшение гибкости"
+        title="Гибкость"
         content="Практика йоги помогает развивать гибкость, снимая мышечное напряжение и увеличивая диапазон движений в суставах."
+        {...cardClasses}
       />
       <AdvantagesCard
-        cardClassName="bg-gradient-to-r from-white/50 via-white/50 to-white/80 "
-        className={
-          "p-[3px] bg-gradient-to-r from-transparent via-green-900/20  to-green-900/60 rounded-xl"
-        }
         title="Снижение стресса"
         content="Дыхательные упражнения и медитации в йоге снижают уровень стресса и помогают справляться с тревогой и эмоциональным напряжением."
+        {...cardClasses}
       />
       <AdvantagesCard
-        cardClassName="bg-gradient-to-r from-white/50 via-white/50 to-white/80 "
-        className={
-          "p-[3px] bg-gradient-to-r from-transparent via-green-900/20  to-green-900/60 rounded-xl"
-        }
         title="Укрепление мышц"
         content="Йога развивает силу и тонус мышц, улучшая выносливость и поддерживая правильную осанку."
+        {...cardClasses}
       />
     </div>
   );
