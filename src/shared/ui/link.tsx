@@ -33,7 +33,7 @@ export const Link = (props: LinkProps) => {
       )}
       {...rest}
     >
-      <Typography variant={"link"} className="">
+      <Typography variant={"link"} className={className}>
         {children}
       </Typography>
       {highlight && isActive && (

@@ -30,7 +30,7 @@ export const RightContent = (props: RightContentProps) => {
         cardClassName="bg-gradient-to-l from-white/50 via-white/50 to-white/80 "
         className="p-[3px] bg-gradient-to-l from-transparent via-green-900/20  to-green-900/60 rounded-xl"
         title="Баланс тела и разума"
-        content="Йога помогает гармонизировать физическое и психическое состояние, улучшая самоощущение и способствуя эмоциональному равновесию."
+        content="Йога помогает гармонизировать физическое и психическое состояние"
       />
     </div>
   );
