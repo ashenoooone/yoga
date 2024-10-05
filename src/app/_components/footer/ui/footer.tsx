@@ -35,19 +35,18 @@ export const Footer = (props: FooterProps) => {
             Главная
           </Link>
           {separator}
-          {/* todo страница о нас */}
           <Link
             className="text-white"
-            href={routerPaths.profile}
+            href={routerPaths.pose}
           >
-            О нас
+            Определить позу
           </Link>
           {separator}
           <Link
             className="text-white"
-            href={routerPaths.profile}
+            href={routerPaths.assanas}
           >
-            Профиль
+            Асаны
           </Link>
         </div>
       </div>

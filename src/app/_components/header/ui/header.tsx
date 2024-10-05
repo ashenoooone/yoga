@@ -23,11 +23,6 @@ export const Header = (props: HeaderProps) => {
             Определить позу
           </Link>
         </div>
-        <div>
-          <Link href={routerPaths.auth}>
-            Авторизоваться
-          </Link>
-        </div>
       </div>
     </header>
   );
