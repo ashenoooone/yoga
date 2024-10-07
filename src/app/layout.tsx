@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "./_components/header";
 import { ReactNode } from "react";
 import { Footer } from "./_components/footer";
+import { ReactQueryProvider } from "@/shared/providers/react-query-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,17 +39,17 @@ export interface LayoutProps {
 export const Layout = (props: LayoutProps) => {
   const { body, footer, header } = props;
   return (
-    <>
+    <ReactQueryProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
-        <div className="flex flex-col gap-2 min-h-screen ">
+        <div className="flex flex-col gap-2 min-h-screen">
           {header}
-          <div className="flex-grow">{body}</div>
+          <div className="flex-grow flex">{body}</div>
           {footer}
         </div>
       </body>
-    </>
+    </ReactQueryProvider>
   );
 };
 
