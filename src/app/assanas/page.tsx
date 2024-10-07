@@ -3,6 +3,7 @@ import {
   ShortPoseList,
   useGetPoses,
 } from "@/entities/pose";
+import { Dialog, DialogContent } from "@/shared/ui/dialog";
 import { Page } from "@/shared/ui/page";
 import { PaginationComponent } from "@/shared/ui/pagination";
 import LoaderSpinner from "@/shared/ui/spinner";
@@ -26,7 +27,10 @@ export default function AssanasPage() {
 
   return (
     <Page>
-      <ShortPoseList shortPoses={data?.data.poses ?? []} />
+      <ShortPoseList
+        asLink
+        shortPoses={data?.data.poses ?? []}
+      />
       <PaginationComponent
         className="mt-auto"
         onPageChange={(page) => setCurrentPage(page)}

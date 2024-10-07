@@ -48,6 +48,7 @@ export const Layout = (props: LayoutProps) => {
           <div className="flex-grow flex">{body}</div>
           {footer}
         </div>
+        <div id="modals"></div>
       </body>
     </ReactQueryProvider>
   );
@@ -55,8 +56,10 @@ export const Layout = (props: LayoutProps) => {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="ru">
@@ -65,6 +68,7 @@ export default function RootLayout({
         header={<Header />}
         body={children}
       />
+      {modal}
     </html>
   );
 }
