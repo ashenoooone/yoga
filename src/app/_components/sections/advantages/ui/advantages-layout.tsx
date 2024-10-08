@@ -1,6 +1,5 @@
 import { cn } from "@/shared/utils";
 import bg from "@/shared/assets/best-of-yoga.png";
-import { title } from "process";
 
 type AdvantagesLayoutProps = {
   className?: string;

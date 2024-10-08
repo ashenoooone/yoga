@@ -1,4 +1,3 @@
-import { cn } from "@/shared/utils";
 import yogaWoman from "@/shared/assets/yoga-woman.svg";
 import Image from "next/image";
 import { Typography } from "@/shared/ui/typography";

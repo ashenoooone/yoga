@@ -3,7 +3,6 @@ import {
   ShortPoseList,
   useGetPoses,
 } from "@/entities/pose";
-import { Dialog, DialogContent } from "@/shared/ui/dialog";
 import { Page } from "@/shared/ui/page";
 import { PaginationComponent } from "@/shared/ui/pagination";
 import LoaderSpinner from "@/shared/ui/spinner";
