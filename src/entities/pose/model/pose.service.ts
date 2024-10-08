@@ -4,18 +4,21 @@ import {
   PaginationRequestType,
   PaginationResponseType,
 } from "@/shared/api";
-import { PoseShortType } from "./types";
-import { AxiosResponse } from "axios";
+import { PoseShortType, PoseType } from "./types";
 
 export type GetPosesResponseType = {
   poses: PoseShortType[];
 } & PaginationResponseType;
 
 export class PoseService {
+  static async getPoseById(params: { id: number }) {
+    return $api.get<PoseType>(`poses/${params.id}`);
+  }
+
   static async getPoses(
     params: PaginationRequestType = PAGINATION_DEFAULT_PARAMS
-  ): Promise<AxiosResponse<GetPosesResponseType>> {
-    return $api.get("poses", {
+  ) {
+    return $api.get<GetPosesResponseType>("poses", {
       params,
     });
   }

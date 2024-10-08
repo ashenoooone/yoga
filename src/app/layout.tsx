@@ -34,10 +34,11 @@ export interface LayoutProps {
   body: ReactNode;
   header: ReactNode;
   footer: ReactNode;
+  modal?: ReactNode;
 }
 
 export const Layout = (props: LayoutProps) => {
-  const { body, footer, header } = props;
+  const { body, footer, header, modal } = props;
   return (
     <ReactQueryProvider>
       <body
@@ -48,7 +49,7 @@ export const Layout = (props: LayoutProps) => {
           <div className="flex-grow flex">{body}</div>
           {footer}
         </div>
-        <div id="modals"></div>
+        <div id="modals">{modal}</div>
       </body>
     </ReactQueryProvider>
   );
@@ -64,11 +65,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <Layout
+        modal={modal}
         footer={<Footer />}
         header={<Header />}
         body={children}
       />
-      {modal}
     </html>
   );
 }

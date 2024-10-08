@@ -15,3 +15,13 @@ export const useGetPoses = (
     queryFn: () => PoseService.getPoses(params),
   });
 };
+
+export const USE_GET_POSE_BY_ID = "pose";
+export const useGetPoseById = (
+  params: Parameters<typeof PoseService.getPoseById>[0]
+) => {
+  return useQuery({
+    queryKey: [USE_GET_POSES_QUERY_KEY, params.id],
+    queryFn: () => PoseService.getPoseById(params),
+  });
+};

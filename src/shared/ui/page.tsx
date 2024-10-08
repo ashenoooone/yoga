@@ -10,7 +10,7 @@ export const Page = (props: PageProps) => {
   return (
     <main
       className={cn(
-        "flex flex-col gap-4 py-4 max-w-[1024px] mx-auto",
+        "flex flex-col gap-4 py-4 max-w-[1024px] mx-auto w-full",
         className
       )}
     >
