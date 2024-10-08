@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { PoseService } from "./pose.service";
 
 export const USE_GET_POSES_QUERY_KEY = "poses";
@@ -23,5 +23,15 @@ export const useGetPoseById = (
   return useQuery({
     queryKey: [USE_GET_POSES_QUERY_KEY, params.id],
     queryFn: () => PoseService.getPoseById(params),
+  });
+};
+
+export const usePostPredictPoseByPhoto = () => {
+  return useMutation({
+    mutationFn: (
+      params: Parameters<
+        typeof PoseService.predictPoseByPhoto
+      >[0]
+    ) => PoseService.predictPoseByPhoto(params),
   });
 };

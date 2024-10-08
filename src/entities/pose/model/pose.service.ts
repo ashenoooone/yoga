@@ -11,6 +11,14 @@ export type GetPosesResponseType = {
 } & PaginationResponseType;
 
 export class PoseService {
+  static async predictPoseByPhoto(params: {
+    photo: string;
+  }) {
+    return $api.post<PoseType>("network/predict", {
+      image: params.photo,
+    });
+  }
+
   static async getPoseById(params: { id: number }) {
     return $api.get<PoseType>(`poses/${params.id}`);
   }
