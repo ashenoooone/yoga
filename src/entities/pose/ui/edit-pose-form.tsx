@@ -11,6 +11,7 @@ import { cn } from "@/shared/utils";
 type EditPoseFormProps = {
   className?: string;
   pose: PoseType;
+  onSubmit?: (pose: PoseType) => void;
 };
 
 const OtherTitleInput = ({
@@ -41,7 +42,7 @@ const OtherTitleInput = ({
 );
 
 export const EditPoseForm = (props: EditPoseFormProps) => {
-  const { pose, className } = props;
+  const { pose, className, onSubmit } = props;
 
   const [poseState, setPoseState] = useState<PoseType>(
     pose || {
@@ -84,7 +85,7 @@ export const EditPoseForm = (props: EditPoseFormProps) => {
     const newId =
       poseState.other_titles.length > 0
         ? Math.max(
-            ...poseState.other_titles.map((t) => t.id)
+            ...poseState.other_titles.map((t) => t.id ?? 0)
           ) + 1
         : 1;
     setPoseState({
@@ -119,8 +120,30 @@ export const EditPoseForm = (props: EditPoseFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Здесь вы можете отправить данные на сервер или выполнить другие действия
-    console.log("Отправка формы:", poseState);
+
+    onSubmit?.({
+      ...poseState,
+      image:
+        poseState.image === pose.image
+          ? null
+          : poseState.image,
+      other_titles: poseState.other_titles.map(
+        (otherTitle) => {
+          if (
+            pose.other_titles.find(
+              (ot) => ot.id === otherTitle.id
+            )
+          ) {
+            return otherTitle;
+          } else {
+            return {
+              ...otherTitle,
+              id: undefined,
+            };
+          }
+        }
+      ),
+    });
   };
 
   return (
@@ -132,6 +155,7 @@ export const EditPoseForm = (props: EditPoseFormProps) => {
       )}
     >
       <Input
+        id="source_title"
         label="Название"
         value={poseState.source_title}
         onChange={handleInputChange}

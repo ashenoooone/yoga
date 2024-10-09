@@ -8,7 +8,7 @@ export type PoseType = {
 };
 
 export type OtherTitle = {
-  id: number;
+  id?: number;
   id_pose: number;
   title: string;
 };

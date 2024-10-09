@@ -36,3 +36,13 @@ export const usePostPredictPoseByPhoto = () => {
     ) => PoseService.predictPoseByPhoto(params),
   });
 };
+
+export const usePutUpdatePoseById = () => {
+  return useMutation({
+    mutationFn: (
+      params: Parameters<
+        typeof PoseService.putUpdatePoseById
+      >[0]
+    ) => PoseService.putUpdatePoseById(params),
+  });
+};

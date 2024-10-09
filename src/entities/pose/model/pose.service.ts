@@ -1,4 +1,5 @@
 import {
+  $adminApi,
   $api,
   PAGINATION_DEFAULT_PARAMS,
   PaginationRequestType,
@@ -11,6 +12,16 @@ export type GetPosesResponseType = {
 } & PaginationResponseType;
 
 export class PoseService {
+  static async putUpdatePoseById(params: {
+    id: number;
+    body: PoseType;
+  }) {
+    return $adminApi.put<PoseType>(
+      `poses/${params.id}`,
+      params.body
+    );
+  }
+
   static async predictPoseByPhoto(params: {
     photo: string;
   }) {

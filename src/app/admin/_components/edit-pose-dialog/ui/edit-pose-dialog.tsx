@@ -1,7 +1,9 @@
 import {
   EditPoseForm,
   PoseShortType,
+  PoseType,
   useGetPoseById,
+  usePutUpdatePoseById,
 } from "@/entities/pose";
 import { Dialog, DialogContent } from "@/shared/ui/dialog";
 import LoaderSpinner from "@/shared/ui/spinner";
@@ -21,9 +23,18 @@ export const EditPoseDialog = (
   const { className, shortPose, isOpen, onOpenChange } =
     props;
 
+  const { mutateAsync } = usePutUpdatePoseById();
+
   const { data, isLoading, isError } = useGetPoseById({
     id: shortPose?.id,
   });
+
+  const onSubmit = (pose: PoseType) => {
+    mutateAsync({
+      id: pose.id,
+      body: pose,
+    });
+  };
 
   let content;
 
@@ -32,7 +43,9 @@ export const EditPoseDialog = (
   } else if (isError) {
     content = <div>Error</div>;
   } else {
-    content = <EditPoseForm pose={data!.data} />;
+    content = (
+      <EditPoseForm onSubmit={onSubmit} pose={data!.data} />
+    );
   }
 
   return (
