@@ -27,14 +27,14 @@ const OtherTitleInput = ({
     <Input
       value={title.title}
       onChange={(e) =>
-        onTitleChange(title.id, e.target.value)
+        onTitleChange(title.id!, e.target.value)
       }
       className="mr-2"
     />
     <Button
       variant="destructive"
       size="icon"
-      onClick={() => onDelete(title.id)}
+      onClick={() => onDelete(title.id!)}
     >
       <Trash2 className="h-4 w-4" />
     </Button>

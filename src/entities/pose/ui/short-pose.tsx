@@ -5,7 +5,7 @@ import { ImageFallback } from "@/shared/ui/image-fallback";
 import { Typography } from "@/shared/ui/typography";
 import { useRouter } from "next/navigation";
 import { routerPaths } from "@/shared/configs/router-config";
-import { Edit, Edit2Icon } from "lucide-react";
+import { Edit } from "lucide-react";
 import { Button } from "@/shared/ui/button";
 
 export type onEditShortPose = (
