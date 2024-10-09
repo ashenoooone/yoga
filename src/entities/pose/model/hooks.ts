@@ -22,6 +22,7 @@ export const useGetPoseById = (
 ) => {
   return useQuery({
     queryKey: [USE_GET_POSES_QUERY_KEY, params.id],
+    enabled: params.id !== undefined,
     queryFn: () => PoseService.getPoseById(params),
   });
 };

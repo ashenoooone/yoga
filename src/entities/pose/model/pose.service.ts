@@ -19,7 +19,7 @@ export class PoseService {
     });
   }
 
-  static async getPoseById(params: { id: number }) {
+  static async getPoseById(params: { id?: number }) {
     return $api.get<PoseType>(`poses/${params.id}`);
   }
 

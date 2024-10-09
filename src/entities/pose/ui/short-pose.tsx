@@ -1,18 +1,27 @@
+"use client";
 import { cn } from "@/shared/utils";
 import { PoseShortType } from "../model/types";
 import { ImageFallback } from "@/shared/ui/image-fallback";
 import { Typography } from "@/shared/ui/typography";
 import { useRouter } from "next/navigation";
 import { routerPaths } from "@/shared/configs/router-config";
+import { Edit, Edit2Icon } from "lucide-react";
+import { Button } from "@/shared/ui/button";
 
-type ShortPoseProps = {
+export type onEditShortPose = (
+  shortPose: PoseShortType
+) => void;
+
+export type ShortPoseProps = {
   className?: string;
   shortPose: PoseShortType;
   asLink?: boolean;
+  onEditClick?: onEditShortPose;
 };
 
 export const ShortPose = (props: ShortPoseProps) => {
-  const { className, shortPose, asLink } = props;
+  const { className, shortPose, asLink, onEditClick } =
+    props;
 
   const router = useRouter();
 
@@ -26,14 +35,14 @@ export const ShortPose = (props: ShortPoseProps) => {
               )
           : undefined
       }
-      className={cn("flex flex-col", className, {
+      className={cn("flex relative flex-col", className, {
         "hover:scale-[1.01] cursor-pointer transition-all":
           asLink,
       })}
     >
       {shortPose.image ? (
         <img
-          className="rounded-t-xl w-full"
+          className="rounded-t-xl w-full h-[240px]"
           src={shortPose.image}
           alt={shortPose.source_title}
         />
@@ -54,6 +63,15 @@ export const ShortPose = (props: ShortPoseProps) => {
           {shortPose.short_description}
         </Typography>
       </div>
+      {onEditClick && (
+        <Button
+          onClick={() => onEditClick(shortPose)}
+          className="absolute top-2 right-2"
+          variant={"empty"}
+        >
+          <Edit />
+        </Button>
+      )}
     </div>
   );
 };

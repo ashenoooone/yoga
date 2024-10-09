@@ -1,17 +1,19 @@
 import { cn } from "@/shared/utils";
 import { PoseShortType } from "../model/types";
-import { ShortPose } from "./short-pose";
+import { ShortPose, ShortPoseProps } from "./short-pose";
 
 type ShortPoseListProps = {
   className?: string;
   shortPoses: PoseShortType[];
   asLink?: boolean;
+  onEditClick?: ShortPoseProps["onEditClick"];
 };
 
 export const ShortPoseList = (
   props: ShortPoseListProps
 ) => {
-  const { className, shortPoses, asLink } = props;
+  const { className, shortPoses, asLink, onEditClick } =
+    props;
 
   return (
     <div
@@ -22,6 +24,7 @@ export const ShortPoseList = (
     >
       {shortPoses.map((shortPose) => (
         <ShortPose
+          onEditClick={onEditClick}
           asLink={asLink}
           key={`short-pose-${shortPose.id}`}
           shortPose={shortPose}

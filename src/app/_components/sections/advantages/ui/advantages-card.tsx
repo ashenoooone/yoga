@@ -1,4 +1,4 @@
-import { Card } from "@/shared/ui/card";
+import { Card, CardContent } from "@/shared/ui/card";
 import { Typography } from "@/shared/ui/typography";
 import { cn } from "@/shared/utils";
 
@@ -28,18 +28,20 @@ export const AdvantagesCard = (
         )}
         {...rest}
       >
-        <Typography
-          variant={"h4"}
-          className="font-bold mb-2 lg:text-xl text-base"
-        >
-          {title}
-        </Typography>
-        <Typography
-          variant={"h6"}
-          className="text-muted-foreground font-normal lg:base text-sm md:inline hidden"
-        >
-          {content}
-        </Typography>
+        <CardContent>
+          <Typography
+            variant={"h4"}
+            className="font-bold mb-2 lg:text-xl text-base"
+          >
+            {title}
+          </Typography>
+          <Typography
+            variant={"h6"}
+            className="text-muted-foreground font-normal lg:base text-sm md:inline hidden"
+          >
+            {content}
+          </Typography>
+        </CardContent>
       </Card>
     </div>
   );
