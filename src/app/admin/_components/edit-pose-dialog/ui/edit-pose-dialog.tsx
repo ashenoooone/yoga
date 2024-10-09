@@ -23,7 +23,13 @@ export const EditPoseDialog = (
   const { className, shortPose, isOpen, onOpenChange } =
     props;
 
-  const { mutateAsync } = usePutUpdatePoseById();
+  const {
+    mutateAsync,
+    isIdle,
+    isError: isMutateError,
+    isLoading: isMutateLoading,
+    isSuccess: isMutateSuccess,
+  } = usePutUpdatePoseById();
 
   const { data, isLoading, isError } = useGetPoseById({
     id: shortPose?.id,
@@ -44,7 +50,14 @@ export const EditPoseDialog = (
     content = <div>Error</div>;
   } else {
     content = (
-      <EditPoseForm onSubmit={onSubmit} pose={data!.data} />
+      <EditPoseForm
+        isError={isMutateError}
+        isLoading={isMutateLoading}
+        isSuccess={isMutateSuccess}
+        isIdle={isIdle}
+        onSubmit={onSubmit}
+        pose={data!.data}
+      />
     );
   }
 

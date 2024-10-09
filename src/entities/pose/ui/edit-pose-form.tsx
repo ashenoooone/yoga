@@ -1,9 +1,16 @@
 "use client";
+
 import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
 import { OtherTitle, PoseType } from "../model/types";
 import { Button } from "@/shared/ui/button";
-import { PlusCircle, Trash2 } from "lucide-react";
+import {
+  PlusCircle,
+  Trash2,
+  Loader2,
+  CheckCircle,
+  XCircle,
+} from "lucide-react";
 import { ChangeEvent, useState } from "react";
 import { Textarea } from "@/shared/ui/textarea";
 import { cn } from "@/shared/utils";
@@ -11,6 +18,10 @@ import { cn } from "@/shared/utils";
 type EditPoseFormProps = {
   className?: string;
   pose: PoseType;
+  isSuccess?: boolean;
+  isError?: boolean;
+  isIdle?: boolean;
+  isLoading?: boolean;
   onSubmit?: (pose: PoseType) => void;
 };
 
@@ -42,7 +53,15 @@ const OtherTitleInput = ({
 );
 
 export const EditPoseForm = (props: EditPoseFormProps) => {
-  const { pose, className, onSubmit } = props;
+  const {
+    pose,
+    className,
+    onSubmit,
+    isSuccess,
+    isError,
+    isIdle,
+    isLoading,
+  } = props;
 
   const [poseState, setPoseState] = useState<PoseType>(
     pose || {
@@ -222,7 +241,27 @@ export const EditPoseForm = (props: EditPoseFormProps) => {
         </Button>
       </div>
 
-      <Button type="submit">Сохранить изменения</Button>
+      <Button
+        type="submit"
+        disabled={isLoading}
+        className={cn(
+          "w-full",
+          isSuccess && "bg-green-500 hover:bg-green-600",
+          isError && "bg-red-500 hover:bg-red-600"
+        )}
+      >
+        {isLoading && (
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        )}
+        {isSuccess && (
+          <CheckCircle className="mr-2 h-4 w-4" />
+        )}
+        {isError && <XCircle className="mr-2 h-4 w-4" />}
+        {isLoading && "Сохранение..."}
+        {isSuccess && "Сохранено"}
+        {isError && "Ошибка"}
+        {isIdle && "Сохранить"}
+      </Button>
     </form>
   );
 };
